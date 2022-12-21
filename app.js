@@ -11,7 +11,7 @@ const session = require('express-session');
 app.set('view engine', "pug");
 app.set("views", "views");
 app.use(session({
-    secret: "bbq chips",
+    secret: "Hello",
     resave: true,
     saveUninitialized: false
 }))
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/login', require('./routes/loginRoutes'));
 app.use('/register', require('./routes/registerRoutes'));
 app.use('/logout', require('./routes/logout'));
-app.use('/api/post', require('./routes/api/posts'))
+app.use('/api/posts', require('./routes/api/posts'))
 
 const server = app.listen(port, () => {
     console.log("Server listening on port ", port);
